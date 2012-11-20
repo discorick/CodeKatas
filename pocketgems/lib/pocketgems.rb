@@ -10,9 +10,9 @@ end
 
 
 class PocketGems
-  attr_accessor :depth, :width, :height
   def initialize
-    @depth, @width, @height = 1,0,0
+    @wall = [1,0,0]
+    @test_cases = {}
   end
 
   def self.build_new_wall
@@ -20,8 +20,16 @@ class PocketGems
   end
 
   def wall_dimensions
-    this_walls_dimensions = [@height, @width, @depth]
+    this_walls_dimensions = @wall
   end
+
+  def input_test_cases(number)
+    for testcase in 1..number
+      @test_cases[testcase] = []
+    end
+    @test_cases
+  end
+
 
 end
 
