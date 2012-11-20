@@ -11,7 +11,6 @@ end
 
 class PocketGems
   def initialize
-    @wall = [1,0,0]
     @test_cases = {}
   end
 
@@ -19,17 +18,12 @@ class PocketGems
     PocketGems.new
   end
 
-  def wall_dimensions
-    this_walls_dimensions = @wall
-  end
-
-  def input_test_cases(number)
+  def input_test_cases(number, &block)
     for testcase in 1..number
-      @test_cases[testcase] = []
+      @test_cases[testcase] = block
     end
     @test_cases
   end
-
 
 end
 
