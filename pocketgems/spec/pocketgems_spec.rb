@@ -16,10 +16,18 @@ describe "When Building a Wall with Blocks" do
     before (:each) do
       @gems_session = PocketGems.build_new_wall
     end
-    
-    it "\n - A new wall has a Height of 0, width of 0, and Depth of 1 " do
-      @gems_session.wall_dimensions.should == [0,0,1]
+
+    it "\n - Inputs a Number of Test Cases" do
+      @gems_session.input_test_cases(3).should == {1 => [], 2 => [], 3 =>[]}
     end
 
+    it "\n - Inputs 3 Values per test Case.. 2**Depth, Height, 1(width)" do
+      @gems_session.input_test_cases(3) do
+        [1,1,1]
+        [2,1,1]
+        [2,2,1]
+      end.should == {1 => [1,1,1], 2 => [2,1,1], 3 =>[2,2,1]}
+
+    end
   end
 end
